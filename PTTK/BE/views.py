@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User, Post, Like
-from .serializers import UserSerializer, PostSerializer, PostDetailSerializer
+from .serializers import UserSerializer, PostSerializer, PostDetailSerializer, LikeSerializer
 
 # Create your views here.
 
@@ -73,3 +73,53 @@ class GetPostDetailAPIView(APIView):
                 },
                 status=status.HTTP_404_NOT_FOUND
             )
+            
+class LikePostAPIView(APIView):
+    def post(self, request):
+        user_id = request.data.get('user_id')
+        post_id = request.data.get('post_id')
+        status_like = request.data.get('status')
+        
+        #Validate Input
+        if user_id is None or post_id is None or status_like is None:
+            return Response(
+                {
+                    "userMsg": "Xảy ra lỗi",
+                    "devMsg": "User_ID, Post_ID, Status are required"
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        try:
+            user = User.objects.get(id=user_id)
+            post = Post.objects.get(id=post_id)
+            
+            like, created = Like.objects.get_or_create(user=user, post=post)
+            like.status = status_like
+            like.save()
+            
+            return Response(
+                {
+                    "userMsg": "Thành công",
+                    "devMsg": None
+                },
+                status=status.HTTP_200_OK if not created else status.HTTP_201_CREATED
+            )
+            
+        except User.DoesNotExist:
+            return Response(
+                {
+                    "userMsg": "User không tồn tại",
+                    "devMsg": "User not found"
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Post.DoesNotExist:
+            return Response(
+                {
+                    "userMsg": "Bài viết không tồn tại",
+                    "devMsg": "Post not found"
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )            
+            
