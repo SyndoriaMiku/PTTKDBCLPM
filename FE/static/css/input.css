@@ -1,0 +1,30 @@
+.input {
+    height: 40px;
+    width: 180px;
+    color: #000000;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #BBBBBB;
+    border-style: solid;
+    padding: 0 16px;
+}
+
+.input:focus {
+    border-color: #019160;
+}
+
+.input::placeholder {
+    color: #BBBBBB;
+}
+
+.combo-box {
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #BBBBBB;
+    border-style: solid;
+    height: 40px;
+}
+
+.combo-box option {
+    background-color: #E9EBEE;
+}

@@ -1,0 +1,33 @@
+@import url(input.css);
+
+a:visited {
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #019160;
+    margin-top: 8px;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 24px;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    min-width: 100px;
+}
+
+.btn:hover {
+    background-color: #2FBE8E;
+}
+
+.btn:active {
+    background-color: #01B075;
+}
+
+
+

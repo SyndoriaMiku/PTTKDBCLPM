@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View your post</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/post.css">
+    <link rel="stylesheet" href="static/css/postlist.css">
+
+    <!-- Scripts -->
+    <script src="https:ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="static/js/script.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-wrap">
+                <div class="header-logo">
+                    <a href="index.html" class="logo-link">Logo</a>
+            </div>
+        </div>
+        <h2 style="text-align: center;">Các bài viết của bạn</h2>
+        <div class="content">
+            <div class="filter-sort">
+                <div class="filter-time">
+                    <label for="filter-time" class="title-field">Lọc theo thời gian</label>
+                    <select id="time-filter" class="combo-box">
+                        <option value="1">Trong vòng 1 tháng</option>
+                        <option value="3">Trong vòng 3 tháng</option>
+                        <option value="6">Trong vòng 6 tháng</option>
+                        <option value="12">Trong vòng 1 năm</option>
+                        <option value="0">Tất cả</option>
+                    </select>
+                    <label for="silter-sort" class="title-field" style="margin-left: 16px;">Sắp xếp theo</label>
+                    <select id="sort-filter" class="combo-box">
+                        <option value="asc">Lượt thích ít nhất</option>
+                        <option value="desc">Lượt thích nhiều nhất</option>
+                    </select>
+                    <button class="filter-btn btn" id="find" style="float: right;">Tìm kiếm</button>
+                </div>
+            </div>
+            <div class="post-list">
+                <a href="post.html" class="post-link">
+                    <div class="post-item">
+                        <p class="post-title">Cách cài đặt C++ cho máy tính Mac OS</p>
+                        <p class="post-like">Lượt thích: 19</p>           
+                    </div>
+                </a>
+                <a href="post2.html" class="post-link">
+                    <div class="post-item">
+                        <p class="post-title">Mẫu cổ phiếu nên đầu tư</p>
+                        <p class="post-like">Lượt thích: 429</p>           
+                    </div>
+                </a>
+
+
+        </div>
+            
+    </div>
+</body>
+</html>
